@@ -1,14 +1,11 @@
 package com.logistics.packaging
 
+import com.logistics.packaging.exception.NoSuitablePackageException
 import com.logistics.packaging.model.Input
-import com.logistics.packaging.service.PackagingService
-import com.mobiquityinc.packer.Packer
+import com.logistics.packer.Packer
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit4.SpringRunner
 
 @SpringBootTest
 class PackagingApplicationTests {
@@ -29,16 +26,13 @@ class PackagingApplicationTests {
 		assertEquals("4", output.toString())
 	}
 
-	@Test
+	@Test(expected = NoSuitablePackageException::class)
 	fun testNothing() {
 		// Given
 		val input = "8 : (1,15.3,€34)"
 
 		// When
 		val output = Packer.pack(Input(input))
-
-		// Then
-		assertEquals("-", output.toString())
 	}
 
 	@Test

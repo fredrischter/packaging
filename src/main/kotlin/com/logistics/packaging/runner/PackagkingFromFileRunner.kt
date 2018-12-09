@@ -1,15 +1,9 @@
 package com.logistics.packaging.runner
 
-import com.logistics.packaging.model.Input
-import com.logistics.packaging.model.Output
-import com.logistics.packaging.service.PackagingService
-import com.mobiquityinc.packer.Packer
+import com.logistics.packer.Packer
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
-import java.io.File
-import java.util.*
 
 @Component
 class CommandLineAppStartupRunner : CommandLineRunner {

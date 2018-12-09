@@ -82,7 +82,7 @@
 				<dependencies>
 					<dependency>
 						<groupId>org.jetbrains.kotlin</groupId>
-						<artifactId><ko></ko>tlin-maven-allopen</artifactId>
+						<artifactId>kotlin-maven-allopen</artifactId>
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
