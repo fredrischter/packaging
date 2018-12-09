@@ -9,10 +9,10 @@ java -jar target/packaging-0.0.1-SNAPSHOT.jar example.txt
 
 Output:
 
-4
--
-2,7
-8,9
+``4``
+``-``
+``2,7``
+``8,9``
 
 ## What does it do?
 
