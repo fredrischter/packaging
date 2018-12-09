@@ -23,19 +23,16 @@ class Packer {
 
         fun isViableAndApply(pack: Package): Boolean {
             if (pack.weight() > capacity) {
-                println(" Rejecting because is out of capacity: "+pack)
                 return false
             }
 
             if (mostValuablePackage != null &&
                     (mostValuablePackage!!.cost() > pack.cost() ||
                             (mostValuablePackage!!.weight() < pack.weight() && mostValuablePackage!!.cost() == pack.cost()))) {
-                println(" Rejecting "+pack+" because is less valuable than the choosen one: "+ mostValuablePackage + ": " + mostValuablePackage!!.cost() + " >= " + pack.cost())
                 return true
             }
 
             mostValuablePackage = pack;
-            println("  Most valuable: "+pack)
             return true
         }
 
@@ -45,7 +42,6 @@ class Packer {
                 things.forEach {
                     var other = things.toMutableList()
                     other.remove(it)
-                    println("Lookup "+it+" "+other)
                     var pack = Package.emptyPackage()
                     MostValuablePackageLookup(pack, it, other)
                 }
@@ -75,10 +71,7 @@ class Packer {
                 throw NoSuitablePackageException()
             }
 
-            println("Original items "+input.things)
             var orderedThings = input.things.stream().toList().sortedBy { -it.cost }
-
-            println("Ordered items "+orderedThings)
 
             var mostValuablePackageLookupContext = MostValuablePackageLookupContext(input.capacity, orderedThings)
 
